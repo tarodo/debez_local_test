@@ -1,0 +1,17 @@
+{
+    "name": "exclude_test",
+    "config": {
+        "connector.class": "io.debezium.connector.postgresql.PostgresConnector",
+        "database.hostname": "postgres",
+        "database.port": "5432",
+        "database.user": "postgres",
+        "database.password": "postgres",
+        "database.dbname": "test",
+        "database.server.name": "test_psql",
+        "table.include.list": "public.card_test",
+        "column.mask.hash.SHA-256.with.salt.CzQMA0cB5K": "public.card_test.PAN,public.card_test.PAN5",
+        "column.exclude.list": "public.card_test.PAN2, public.card_test.PAN3",
+        "plugin.name": "pgoutput",
+        "topic.prefix": "exclude_col"
+    }
+}

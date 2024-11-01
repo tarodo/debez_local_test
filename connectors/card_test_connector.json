@@ -1,0 +1,23 @@
+{
+    "name": "card_test",
+    "config": {
+        "connector.class": "io.debezium.connector.postgresql.PostgresConnector",
+        "database.hostname": "postgres",
+        "database.port": "5432",
+        "database.user": "postgres",
+        "database.password": "postgres",
+        "database.dbname": "test",
+        "database.server.name": "test_psql",
+        "table.include.list": "public.card_test, public.table_test_1, public.table_test_2",
+        "column.mask.hash.SHA-256.with.salt.CzQMA0cB5K": "public.card_test.PAN,public.card_test.PAN5",
+        "column.mask.hash.v2.SHA-512.with.salt.CzQMA0cB5K": "public.card_test.PAN2, public.table_test_1.first_name, public.table_test_1.email",
+        "column.mask.with.6.chars" : "public.card_test.PAN3",
+        "converters": "PanConverter",
+        "PanConverter.type": "az.kapitalbank.debezium.converter.pan.PanConverter",
+        "PanConverter.columns": "pan4",
+        "PanConverter.columns.advanced": "pan6",
+        "PanConverter.left": "8",
+        "plugin.name": "pgoutput",
+        "topic.prefix": "pgtest"
+    }
+}
